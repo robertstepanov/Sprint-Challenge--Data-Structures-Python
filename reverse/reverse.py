@@ -1,3 +1,6 @@
+import time
+start_time = time.time()
+
 class Node:
     def __init__(self, value=None, next_node=None):
         self.value = value
@@ -39,4 +42,14 @@ class LinkedList:
         return False
 
     def reverse_list(self, node, prev):
-        pass
+        prev = None
+        current = self.head 
+        while(current is not None): 
+            next_node = current.next_node
+            current.next_node = prev 
+            prev = current 
+            current = next_node
+        self.head = prev
+
+end_time = time.time()
+print(f"runtime: {end_time - start_time} seconds")
